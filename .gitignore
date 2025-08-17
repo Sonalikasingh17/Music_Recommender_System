@@ -136,7 +136,7 @@ celerybeat.pid
 
 # Environments
 musicrec/
-musicrec
+/musicrec/
 .env
 .envrc
 .venv
