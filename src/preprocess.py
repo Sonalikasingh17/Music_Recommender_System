@@ -75,7 +75,7 @@ joblib.dump(tfidf_matrix, 'tfidf_matrix.pkl')
 joblib.dump(cosine_sim, 'cosine_sim.pkl')
 
 
-logging.info("💾 Data saved to disk: df_cleaned.pkl, tfidf_matrix.pkl", "cosine_sim.pkl")
+logging.info("💾 Data saved to disk: df_cleaned.pkl, tfidf_matrix.pkl, cosine_sim.pkl")
 logging.info("✅ Preprocessing complete.")
 
 
