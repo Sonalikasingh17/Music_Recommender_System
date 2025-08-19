@@ -35,7 +35,7 @@ def download_file(url, output):
     if not os.path.exists(output):
         try:
             logging.info(f"📥 Downloading {output}...")
-            gdown.download(url, output, quiet=False)
+            gdown.download(url, output, quiet=False, fuzzy=True) 
         except Exception as e:
             logging.error(f"❌ Failed to download {output}: {e}")
             raise e
