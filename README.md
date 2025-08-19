@@ -1,36 +1,37 @@
-#  Music Recommender System
+# 🎵 Music Recommender System
 [![Streamlit App](https://img.shields.io/badge/Streamlit-Live%20App-brightgreen?logo=streamlit)](https://qwcgfsgz3ckvf7s9pnuuyy.streamlit.app/)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]()
 
-A lightweight **content-based music recommendation app** built with Python, utilizing **TF-IDF** and **cosine similarity** to suggest similar songs.  
-Deployed with **Streamlit**, this tool offers fast and intuitive song recommendations based on the **Spotify Million Song Dataset**.
+
+A lightweight **content-based music recommendation app** built with Python.  
+It uses **TF-IDF** vectorization and **cosine similarity** on song lyrics to suggest similar tracks.  
+
+🚀 Deployed with **Streamlit** for an intuitive, interactive experience.  
+🎧 Get instant music recommendations with **Spotify album covers** integrated.  
 
 ---
+## 🎥 Demo
+<img src="demo.gif" width="800">
 
 <img width="1576" height="1164" alt="Screenshot" src="https://github.com/user-attachments/assets/901d3706-475a-4ab6-81d8-9b82636dd95b" />
 
-
 ##  Features
-
-- **Content-based Recommendations**  
-  Uses TF-IDF vectorization on lyrics/text features and cosine similarity to suggest similar tracks.
-
-- **Lightweight & Git-friendly**  
-  Avoids large `.pkl` files. Only `df_cleaned.pkl` and `tfidf_matrix.pkl` are committed—cosine similarity is computed dynamically at runtime.
-
-- **Streamlit App with Attractive UI**  
-  - Styled banner header and recommendation with Spotify album covers
-  - Spinner feedback and emojis for interactivity  
-  - Built-in song search via dropdown (with optional autocomplete)
-
+- 🎼 **Content-based Recommendations** using TF-IDF vectorization on lyrics/text features + Cosine Similarity to suggest similar tracks.
+- ⚡ **Lightweight & Git-friendly**: avoids committing large files (committed files are computed dynamically at runtime)
+- 🎨 **Streamlit UI**: clean design with Spotify album covers
+- 🔍 **Interactive Search**: choose songs from dropdown  
+ 
 ---
 
 ##  Project Structure
 ```
-├── preprocess.py    # Preprocesses raw data, creates TF-IDF matrix
-├── recommend.py     # Computes and serves recommendations
-├── main.py          # Streamlit app interface
+├── preprocess.py    # Cleans dataset, builds TF-IDF & cosine similarity
+├── recommend.py     # Loads data & computes song recommendations
+├── main.py          # Streamlit app interface (UI + Spotify album covers)
 ├── requirements.txt # Python dependencies
-├── README.md        # This documentation
+├── README.md        # Documentation
+
 ```
 
 ---
@@ -49,7 +50,20 @@ This project uses the [**Spotify Million Song Dataset (Lyrics Data)**](https://w
 
 ---
 
-##  Quick Start
+## 📊 Data Preprocessing & EDA
+
+Before building the recommender, the raw dataset required preprocessing:  
+
+- 🔤 Removed links, numbers & special characters  
+- ✂️ Converted text to lowercase, tokenized, and removed stopwords  
+- 📐 Built a **TF-IDF matrix** (max 5000 features)  
+- 🔗 Computed **cosine similarity** between song vectors  
+
+👉 For detailed preprocessing and exploratory data analysis, see the notebook:  
+[`Music_Recommendation_System_using_Python_code_prep_2.ipynb`](./Music_Recommendation_System_using_Python_code_prep_2.ipynb)
+
+---
+##  🚀 Quick Start
 
 1. **Clone the Repository**
 
@@ -71,10 +85,11 @@ This project uses the [**Spotify Million Song Dataset (Lyrics Data)**](https://w
    ```bash
    python preprocess.py
    ```
-- This script cleans the dataset and saves:
-  - df_cleaned.pkl
-  - tfidf_matrix.pkl
-  - cosine_sim.pkl
+- This script cleans the dataset and create these files in project folder:
+   - `df_cleaned.pkl`
+   - `tfidf_matrix.pkl`
+   - `cosine_sim.pkl`
+ 
 
 5. **Launch the Streamlit app**
    ```bash
@@ -84,8 +99,7 @@ This project uses the [**Spotify Million Song Dataset (Lyrics Data)**](https://w
    
 ---
 
-
-## Tips & Customization
+## ⚡Tips & Customization
 
 - Autocomplete Search Bar: Enhance the select box with st.selectbox(..., help="Type to search...") or use st.text_input() + fuzzy matching for better UX.
 - Custom Styling: Modify CSS in main.py to refine recommendation cards (colors, fonts, spacing).
@@ -93,12 +107,12 @@ This project uses the [**Spotify Million Song Dataset (Lyrics Data)**](https://w
   
 --- 
 
-## Acknowledgements
+## 🙏 Acknowledgements
 
-- Dataset:  [**Spotify Million Song Dataset**](https://www.kaggle.com/datasets/notshrirang/spotify-million-song-dataset/data) 
-- Built using scikit-learn, pandas, NLTK, and Streamlit.
-- Inspired by common TF-IDF + cosine similarity recommender patterns for content-based filtering.
-  
+This project was built with ❤️ using **scikit-learn**, **pandas**, **NLTK**, and **Streamlit**,  
+inspired by common TF-IDF + cosine similarity recommender patterns for content-based filtering.  
+Special thanks to the [Spotify Million Song Dataset](https://www.kaggle.com/datasets/notshrirang/spotify-million-song-dataset/data).
+ 
 --- 
 
-**Enjoy exploring music recommendations with your interactive, lightweight app!**
+**✨ Enjoy exploring music recommendations with your interactive, lightweight app! ✨**
