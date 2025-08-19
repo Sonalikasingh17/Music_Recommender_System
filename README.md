@@ -24,13 +24,13 @@ Deployed with **Streamlit**, this tool offers fast and intuitive song recommenda
 ---
 
 ##  Project Structure
-
--  preprocess.py # Preprocesses raw data, creates TF-IDF matrix
--  recommend.py # Computes and serves recommendations
--  main.py # Streamlit app interface
--  df_cleaned.pkl # Cleaned DataFrame (generated)
--  tfidf_matrix.pkl # TF-IDF feature matrix (generated)
--  requirements.txt # Python dependencies
+```
+├── preprocess.py    # Preprocesses raw data, creates TF-IDF matrix
+├── recommend.py     # Computes and serves recommendations
+├── main.py          # Streamlit app interface
+├── requirements.txt # Python dependencies
+├── README.md        # This documentation
+```
 
 ---
 
