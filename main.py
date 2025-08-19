@@ -311,7 +311,7 @@ st.markdown(
 )
 
 # Title + subtitle (matches your screenshot copy)
-st.markdown('<div class="app-title">🎵 Instant Music Recommender 🎵</div>', unsafe_allow_html=True)
+st.markdown('<div class="app-title">🎵 Music Recommender 🎵</div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">Discover your next favorite song in one click 🚀</div>', unsafe_allow_html=True)
 
 # ─────────── Ensure pickles exist, then load ───────────
@@ -393,7 +393,7 @@ if go:
                 cover = get_song_album_cover_url(song, artist)
                 with col:
                     st.text(song)
-                    st.image(cover, use_column_width=True)
+                    st.image(cover)
 
         # Footer line exactly as in your screenshot
         st.write("🎶 Here are some songs you might like based on your selection ✨🎧")
