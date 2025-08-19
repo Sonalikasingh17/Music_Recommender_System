@@ -2,8 +2,23 @@ import pickle
 import os
 import streamlit as st
 from dotenv import load_dotenv
+import gdown
+import requests
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+
+
+# --- Google Drive Links  ---
+DF_URL = "https://drive.google.com/uc?id=1jcZaGAtE8qkBSDnlt_AIQRh_65NXxtMj"
+SIM_URL = "https://drive.google.com/uc?id=1U9MgEvpG0vZ4X0t5Yn4xplFdSHgPuwLE"
+#  "https://drive.google.com/file/d/1U9MgEvpG0vZ4X0t5Yn4xplFdSHgPuwLE/view?usp=drive_link"
+# COSINE_URL = "https://drive.google.com/file/d/1olV8bAon0C4wa5AR0aOnVrfw94olLwzU/view?usp=drive_link"
+
+# --- Kaggle Backup URLs ---
+DF_KAGGLE = "https://www.kaggle.com/datasets/sonalikasingh17/pickle-files?select=df.pkl"
+SIM_KAGGLE = "https://www.kaggle.com/datasets/sonalikasingh17/pickle-files?select=similarity.pkl"
+# COSINE_KAGGLE = "https://www.kaggle.com/datasets/sonalikasingh17/pickle-files?select=cosine_sim.pkl"
+
 
 
 # Load environment variables from .env file
@@ -82,10 +97,38 @@ st.markdown('<div class="subtitle">Discover your next favorite song in one click
 
 
 
+# --- Download function ---
+def download_file(url, output):
+    try:
+        if "drive.google.com" in url:
+            gdown.download(url, output, quiet=False)
+        else:
+            r = requests.get(url, stream=True)
+            with open(output, "wb") as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    f.write(chunk)
+    except Exception as e:
+        st.error(f"❌ Failed to download {output}: {e}")
 
+# --- Ensure df.pkl is present ---
+if not os.path.exists("df.pkl"):
+    st.info("📥 Downloading df.pkl...")
+    download_file(DF_URL, "df.pkl")
 
-music = pickle.load(open('df.pkl','rb'))
-similarity = pickle.load(open('similarity.pkl','rb'))
+# --- Ensure similarity.pkl is present ---
+if not os.path.exists("similarity.pkl"):
+    st.info("📥 Downloading similarity.pkl...")
+    download_file(SIM_URL, "similarity.pkl")
+
+# --- Load Pickle Files ---
+with open("df.pkl", "rb") as f:
+    music = pickle.load(f)
+
+with open("similarity.pkl", "rb") as f:
+    similarity = pickle.load(f)
+
+# music = pickle.load(open('df.pkl','rb'))
+# similarity = pickle.load(open('similarity.pkl','rb'))
 
 music_list = music['song'].values
 selected_movie = st.selectbox(
@@ -103,11 +146,10 @@ if st.button("🚀 Recommend Similar Songs"):
     else:
             st.success("✨ Here are your top recommendations:")
 
-    
-    # st.write("Click on the song names to listen on Spotify!")
+            
     with st.spinner("Finding similar songs... 🎧"):
-        recommended_music_names,recommended_music_posters = recommend(selected_movie)
-        col1, col2, col3, col4, col5= st.columns(5)
+        # recommended_music_names,recommended_music_posters = recommend(selected_movie)
+        # col1, col2, col3, col4, col5= st.columns(5)
 
     st.write("🎶 Here are some songs you might like based on your selection ✨🎧")
         
