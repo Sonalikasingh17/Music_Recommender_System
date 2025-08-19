@@ -60,7 +60,7 @@ Before building the recommender, the raw dataset required preprocessing:
 - 🔗 Computed **cosine similarity** between song vectors  
 
 👉 For detailed preprocessing and exploratory data analysis, see the notebook:  
-[`Music_Recommendation_System_using_Python_code_prep_2.ipynb`](./Music_Recommendation_System_using_Python_code_prep_2.ipynb)
+[`Music_Recommendation_System.ipynb`](./Music_Recommendation_System_using_Python_code_prep_2.ipynb)
 
 ---
 ##  🚀 Quick Start
