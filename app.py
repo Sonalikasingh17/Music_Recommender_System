@@ -148,13 +148,11 @@ if st.button("🚀 Recommend Similar Songs"):
 
             
     with st.spinner("Finding similar songs... 🎧"):
-        # recommended_music_names,recommended_music_posters = recommend(selected_movie)
-        # col1, col2, col3, col4, col5= st.columns(5)
+        recommended_music_names,recommended_music_posters = recommend(selected_movie)
+        col1, col2, col3, col4, col5= st.columns(5)
 
-    st.write("🎶 Here are some songs you might like based on your selection ✨🎧")
-        
-        
 
+        
     # Display recommended songs with their album covers
     with col1:
         st.text(recommended_music_names[0])
@@ -173,7 +171,7 @@ if st.button("🚀 Recommend Similar Songs"):
         st.text(recommended_music_names[4])
         st.image(recommended_music_posters[4])
 
+    st.write("🎶 Here are some songs you might like based on your selection ✨🎧")
 
-
-
+# python -m streamlit run app.py
 
