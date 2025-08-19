@@ -213,6 +213,7 @@ import pickle
 import logging
 import requests
 import gdown
+import joblib
 import streamlit as st
 from dotenv import load_dotenv
 import spotipy
@@ -327,16 +328,20 @@ with st.spinner("Setting things up..."):
         st.info("📥 Downloading df_cleaned.pkl...")
         download_file(DF_CLEANED_URL, "df_cleaned.pkl")
 
-try:
-    with open("cosine_sim.pkl", "rb") as f:
-        cosine_sim = pickle.load(f)
-    with open("tfidf_matrix.pkl", "rb") as f:
-        tfidf_matrix = pickle.load(f)
-    with open("df_cleaned.pkl", "rb") as f:
-        df = pickle.load(f)
-except Exception as e:
-    st.error(f"❌ Failed to load model files: {e}")
-    st.stop()
+# try:
+#     with open("cosine_sim.pkl", "rb") as f:
+#         cosine_sim = pickle.load(f)
+#     with open("tfidf_matrix.pkl", "rb") as f:
+#         tfidf_matrix = pickle.load(f)
+#     with open("df_cleaned.pkl", "rb") as f:
+#         df = pickle.load(f)
+# except Exception as e:
+#     st.error(f"❌ Failed to load model files: {e}")
+#     st.stop()
+
+cosine_sim = joblib.load("cosine_sim.pkl")
+tfidf_matrix = joblib.load("tfidf_matrix.pkl")
+df = joblib.load("df_cleaned.pkl")
 
 # Song list for dropdown
 music_list = df['song'].dropna().astype(str).values
