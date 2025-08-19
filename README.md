@@ -12,10 +12,14 @@ It uses **TF-IDF** vectorization and **cosine similarity** on song lyrics to sug
 
 ---
 ## 🎥 Demo
-<img src="demo.gif" width="800">
+<img src="demo.gif" width="1000">
+
+
 <!--
 <img width="1576" height="1164" alt="Screenshot" src="https://github.com/user-attachments/assets/901d3706-475a-4ab6-81d8-9b82636dd95b" />
 -->
+
+
 ##  Features
 - 🎼 **Content-based Recommendations** using TF-IDF vectorization on lyrics/text features + Cosine Similarity to suggest similar tracks.
 - ⚡ **Lightweight & Git-friendly**: avoids committing large files (committed files are computed dynamically at runtime)
