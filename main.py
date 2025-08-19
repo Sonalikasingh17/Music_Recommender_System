@@ -237,6 +237,12 @@ COSINE_URL = "https://drive.google.com/uc?id=1olV8bAon0C4wa5AR0aOnVrfw94olLwzU"
 TFIDF_URL = "https://drive.google.com/uc?id=1Zue6RUi5MSFCu_U_iJMeVEd_kvtSHFFU"
 DF_CLEANED_URL = "https://drive.google.com/uc?id=1RzIEIJ3NEvWPE8LRUqCF5IUlI7gm6XEm"
 
+# --- Kaggle Backup URLs ---
+COSINE_KAGGLE = "https://www.kaggle.com/datasets/sonalikasingh17/pickle-files?select=cosine_sim.pkl"
+TFIDF_KAGGLE ="https://www.kaggle.com/datasets/sonalikasingh17/pickle-files?select=tfidf_matrix.pkl"
+DF_CLEANED_KAGGLE = "https://www.kaggle.com/datasets/sonalikasingh17/pickle-files?select=df_cleaned.pkl"
+
+
 # ─────────── Helpers ───────────
 def download_file(url: str, output: str):
     """Download a file from Google Drive (via gdown) or generic HTTP."""
@@ -244,7 +250,7 @@ def download_file(url: str, output: str):
         if os.path.exists(output):
             return
         if "drive.google.com" in url:
-            gdown.download(url, output, quiet=False)
+            gdown.download(url, output, quiet=False, fuzzy=True)
         else:
             r = requests.get(url, stream=True, timeout=60)
             r.raise_for_status()
