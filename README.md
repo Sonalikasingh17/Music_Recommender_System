@@ -6,7 +6,8 @@ Deployed with **Streamlit**, this tool offers fast and intuitive song recommenda
 
 ---
 
-<img width="1448" height="1188" alt="Screenshot" src="https://github.com/user-attachments/assets/47a71cff-73c7-45ba-bd00-9a0a2688c7be" />
+<img width="1576" height="1164" alt="Screenshot" src="https://github.com/user-attachments/assets/901d3706-475a-4ab6-81d8-9b82636dd95b" />
+
 
 ##  Features
 
@@ -17,7 +18,7 @@ Deployed with **Streamlit**, this tool offers fast and intuitive song recommenda
   Avoids large `.pkl` files. Only `df_cleaned.pkl` and `tfidf_matrix.pkl` are committed—cosine similarity is computed dynamically at runtime.
 
 - **Streamlit App with Attractive UI**  
-  - Styled banner header and recommendation cards  
+  - Styled banner header and recommendation with Spotify album covers
   - Spinner feedback and emojis for interactivity  
   - Built-in song search via dropdown (with optional autocomplete)
 
@@ -73,6 +74,7 @@ This project uses the [**Spotify Million Song Dataset (Lyrics Data)**](https://w
 - This script cleans the dataset and saves:
   - df_cleaned.pkl
   - tfidf_matrix.pkl
+  - cosine_sim.pkl
 
 5. **Launch the Streamlit app**
    ```bash
