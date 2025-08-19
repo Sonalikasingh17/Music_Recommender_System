@@ -1,5 +1,7 @@
 import pickle
+import os
 import streamlit as st
+from dotenv import load_dotenv
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
@@ -42,7 +44,46 @@ def recommend(song):
 
     return recommended_music_names,recommended_music_posters
 
-st.header('Music Recommender System')
+# st.header('Music Recommender System')
+# --- Page Config ---
+st.set_page_config(
+    page_title="Instant Music Recommender 🎶",
+    page_icon="🎧",
+    layout="centered"
+)
+
+# --- Custom CSS for header ---
+st.markdown(
+    """
+    <style>
+    .app-title {
+        font-size: 48px;
+        font-weight: bold;
+        text-align: center;
+        color: #FF4B4B;
+        margin-bottom: 20px;
+        font-family: 'Arial', sans-serif;
+    }
+    .subtitle {
+        text-align: center;
+        font-size: 20px;
+        color: #AAAAAA;
+        margin-bottom: 30px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# --- Fancy Title ---
+st.markdown('<div class="app-title">🎵 Instant Music Recommender 🎵</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Discover your next favorite song in one click 🚀</div>', unsafe_allow_html=True)
+
+
+
+
+
+
 music = pickle.load(open('df.pkl','rb'))
 similarity = pickle.load(open('similarity.pkl','rb'))
 
@@ -52,9 +93,27 @@ selected_movie = st.selectbox(
     music_list
 )
 
-if st.button('Show Recommendation'):
+if st.button("🚀 Recommend Similar Songs"):
     recommended_music_names,recommended_music_posters = recommend(selected_movie)
     col1, col2, col3, col4, col5= st.columns(5)
+
+    st.subheader(f"Recommendations for: {selected_movie}")
+    if recommended_music_names and recommended_music_posters is None:
+            st.warning("⚠️ Sorry, song not found in dataset.")
+    else:
+            st.success("✨ Here are your top recommendations:")
+
+    
+    # st.write("Click on the song names to listen on Spotify!")
+    with st.spinner("Finding similar songs... 🎧"):
+        recommended_music_names,recommended_music_posters = recommend(selected_movie)
+        col1, col2, col3, col4, col5= st.columns(5)
+
+    st.write("🎶 Here are some songs you might like based on your selection ✨🎧")
+        
+        
+
+    # Display recommended songs with their album covers
     with col1:
         st.text(recommended_music_names[0])
         st.image(recommended_music_posters[0])
