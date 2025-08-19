@@ -1,5 +1,5 @@
 #  Music Recommender System
-[![Streamlit App](https://img.shields.io/badge/Streamlit-Live%20App-brightgreen?logo=streamlit)](https://musicrecommendersystem-tqk8uemf3tucd6x7wzddzh.streamlit.app/)
+[![Streamlit App](https://img.shields.io/badge/Streamlit-Live%20App-brightgreen?logo=streamlit)](https://qwcgfsgz3ckvf7s9pnuuyy.streamlit.app/)
 
 A lightweight **content-based music recommendation app** built with Python, utilizing **TF-IDF** and **cosine similarity** to suggest similar songs.  
 Deployed with **Streamlit**, this tool offers fast and intuitive song recommendations based on the **Spotify Million Song Dataset**.
