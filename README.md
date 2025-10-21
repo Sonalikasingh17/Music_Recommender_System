@@ -8,7 +8,7 @@ A lightweight **content-based music recommendation app** built with Python.
 It uses **TF-IDF** vectorization and **cosine similarity** on song lyrics to suggest similar tracks.  
 
 🚀 Deployed with **Streamlit** for an intuitive, interactive experience.  
-🎧 Get instant music recommendations with **Spotify album covers** integrated.  
+🎧 Get instant music recommendations with **Spotify album covers** integrated.   
 
 ---
 ## 🎥 Demo
