@@ -1,4 +1,4 @@
-
+create a virtual environment
 pip install -r requirements.txt
 python src/preprocess.py
 streamlit run main.py
