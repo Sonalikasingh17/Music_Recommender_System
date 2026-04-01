@@ -24,7 +24,7 @@ It uses **TF-IDF** vectorization and **cosine similarity** on song lyrics to sug
 - 🎼 **Content-based Recommendations** using TF-IDF vectorization on lyrics/text features + Cosine Similarity to suggest similar tracks.
 - ⚡ **Lightweight & Git-friendly**: avoids committing large files (committed files are computed dynamically at runtime)
 - 🎨 **Streamlit UI**: clean design with Spotify album covers
-- 🔍 **Interactive Search**: choose songs from dropdown  
+- 🔍 **Interactive Search**: choose songs from dropdown   
  
 ---
 
